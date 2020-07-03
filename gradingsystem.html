@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADING</title>
+</head>
+<body>
+    <div id="studentgrades1">
+   <h3>FULLNAME</h3> <input type="text" id="name" placeholder="insert student's name" onchange="getfullname()"> 
+   
+    <h3>SCORE</h3><input type="number" min="0" max="100" id="score" placeholder="input score" onchange="getscore()">
+    <button onclick="checkResult()">GET GRADE</button>
+</div>
+ <div id="studentgrade2">
+     <h3>FULLNAME:</h3><span id="displayfullname"></span>
+     <h3>GRADE:</h3> <span id="displayscore"></span>
+ </div>
+
+
+
+    <script>
+var fullname;
+var grade;
+
+function getfullname(){
+  fullname = document.getElementById('name').value;
+ 
+}
+function getscore(){
+    grade=document.getElementById('score').value;
+    
+    }
+
+checkResult=()=>{
+    var displayfullname = document.getElementById('displayfullname');
+    var displaygrade = document.getElementById('displayscore');
+    displayfullname.textContent = fullname;
+    if(grade<0){
+        displaygrade.innerHTML="<h3>No such grade exists</h3>";
+    }
+    else if( grade <= 39){
+       
+        displaygrade.innerHTML="<h3>Fail</h3>";
+    }
+    else if(grade<=45){
+      
+        displaygrade.innerHTML="<h3>Average</h3>";
+    }
+    else if(grade<=60){
+       
+        displaygrade.innerHTML="<h3>Good</h3>";
+    }
+    else if(grade<=70){
+       
+        displaygrade.innerHTML="<h3>Very Good</h3>";
+    }
+    else if(grade<=100){
+       
+        displaygrade.innerHTML="<h3>Excellent</h3>";
+    }
+    else{
+       
+        displaygrade.innerHTML="<h3>No such grade exists</h3>";
+    }
+}
+    </script>
+</body>
+</html>
